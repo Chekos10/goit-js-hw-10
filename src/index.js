@@ -24,19 +24,20 @@ function onInput (event){
 }
 
 function onError(error){
-    if(error.message === "404"){
-        return Notify.failure('Oops, there is no country with that name.')
+    if(error.message === '404'){
+        Notiflix.Notify.failure('Oops, there is no country with that name');
     }else{
-        return  Notify.failure(`${error.message}`)
+        Notiflix.Notify.failure(`${error.message}`);
     }
 }
 
 function getCountries(result,element){
     const countriesLength = result.length
     if(countriesLength > 10){
-        refs.list.innerHTML = ''
-        refs.country_info.innerHTML = ''
-        return  Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+        refs.list.innerHTML = ' ';
+        refs.country_info.innerHTML = ' ';
+        Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+        return ''
     }else if (countriesLength >=2 && countriesLength<=10){
         return countriesCard(element)
     }else{
