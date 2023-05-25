@@ -33,16 +33,18 @@ function onError(error){
 
 function getCountries(result,element){
     const countriesLength = result.length
-    if(countriesLength > 10){
+    if(result.length >= 10) {
+        console.log(result);
         refs.list.innerHTML = ' ';
-        refs.country_info.innerHTML = ' ';
         Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
         return ''
-    }else if (countriesLength >=2 && countriesLength<=10){
-        return countriesCard(element)
-    }else{
-        return countryCard(element)
     }
+        else if (countriesLength === 1) {
+        return countryCard(element);
+        } else if (countriesLength >= 2 && countriesLength <= 10) {
+        return countriesCard(element)
+        }
+        
 }
 
 function countriesCard(element){
