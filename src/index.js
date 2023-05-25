@@ -36,7 +36,9 @@ function getCountries(result,element){
     if(result.length >= 10) {
         console.log(result);
         refs.list.innerHTML = ' ';
-        Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+        Notiflix.Notify.info('Too many matches found. Please enter a more specific name.',{
+            showOnlyTheLastOne: true
+        });
         return ''
     }
         else if (countriesLength === 1) {
